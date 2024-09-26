@@ -1,9 +1,9 @@
 package io.codeforall.bootcamp;
 
-public class GeneratedNumbers {
+public class NumberGenerator {
 
-   public int  randomNumber (){
-      return (int) (Math.floor(Math.random()*10));
+   public static int  randomNumber (){
+      return (int) (Math.floor(Math.random()*11));
    }
 
 }
