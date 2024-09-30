@@ -1,6 +1,6 @@
 package io.codeforall.bootcamp.tests;
 
-import io.codeforall.bootcamp.exercise.Ai;
+import io.codeforall.bootcamp.Ai;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
