@@ -19,6 +19,14 @@ public class Sandbox {
         person4.needRoom(hotel1);
         person5.needRoom(hotel1);
         person1.checkOut(hotel1);
+        person2.checkOut(hotel1);
+        person4.needRoom(hotel1);
+        person3.checkOut(hotel1);
+        person4.checkOut(hotel1);
+        person5.checkOut(hotel1);
+
+
+
 
 
 

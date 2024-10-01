@@ -26,7 +26,7 @@ public class Hotel {
             }
         }
         System.out.println("Sorry, we don't have any rooms available.");
-        return 0;
+        return key = -1;
     }
     public void checkOut(int key) {
         if (key < 0) {
