@@ -15,11 +15,11 @@ public class Person {
         this.personMoney = personMoney;
    }
 
-   public void personWithdraw(double withdraw) {
+   public void withdrawValue(double withdraw) {
         personMoney.withdraw(withdraw);
    }
 
-   public void personDeposit(double deposit) {
+   public void depositValue(double deposit) {
         personMoney.deposit(deposit);
    }
 
