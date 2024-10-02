@@ -8,9 +8,9 @@ public class Sandbox {
 
         Person person1 = new Person("Mário");
         Person person2 = new Person ("Ricardo");
-        Person person3 = new Person ("Ricardo");
-        Person person4 = new Person ("Ricardo");
-        Person person5 = new Person ("Ricardo");
+        Person person3 = new Person ("João");
+        Person person4 = new Person ("Tiago");
+        Person person5 = new Person ("Joana");
 
 
         person1.needRoom(hotel1);

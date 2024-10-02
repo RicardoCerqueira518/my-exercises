@@ -2,6 +2,8 @@ package io.codeforall.fanSTATICS;
 
 public class Person {
 
+
+
     private String name;
     public int key;
 
