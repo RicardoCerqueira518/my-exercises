@@ -29,10 +29,14 @@ public class Lamp {
         return new GrumpyGenie();
     }
 
-    public void recycle() {
-        geniesCounter = 0;
-        recyclesNumber++;
-        System.out.println("Your lamp has been recycled");
+    public void recycle(RecyclableDemon demon) {
+        if(!demon.isHasBeenRecycled() == false){
+            geniesCounter --;
+            recyclesNumber++;
+            System.out.println("Your lamp has been recycled");
+            demon.isHasBeenRecycled();
+        }
+
     }
 
 

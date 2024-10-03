@@ -20,16 +20,20 @@ public class Main {
         genie2.wish();
         genie2.wish();
         genie2.wish();
-        Genie genie3 = lamp2.rub();
+        Genie genie3 = lamp1.rub();
         genie3.wish();
         genie3.wish();
         genie3.wish();
         genie3.wish();
-        lamp1.compare(lamp2);
         System.out.println("======================================================");
-        lamp1.recycle();
+        if (genie1.isDemon()){
+            lamp1.recycle((RecyclableDemon) genie3);
+        }
         System.out.println("======================================================");
+        genie3.wish();
+        genie3.wish();
 
+        System.out.println("======================================================");
         lamp1.compare(lamp2);
 
 

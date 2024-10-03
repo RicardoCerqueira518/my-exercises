@@ -4,8 +4,10 @@ public class Genie {
 
     private int maxWishes;
     private int wishCounter = 0;
+    public boolean demon;
 
     public Genie(){
+
         this.maxWishes = 3;
     }
 
@@ -25,4 +27,10 @@ public class Genie {
     public void incWishCounter() {
         this.wishCounter++;
     }
+
+
+    public boolean isDemon() {
+        return demon = false;
+    }
 }
+
