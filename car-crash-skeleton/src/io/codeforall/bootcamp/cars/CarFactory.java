@@ -8,7 +8,7 @@ public class CarFactory {
     public static Car getNewCar() {
         int newCar = (int) Math.floor(Math.random()*2);
         if (newCar == 0) {
-            Car car = new Fiat();
+            return new Fiat();
         }
         return new Mustang();
     }

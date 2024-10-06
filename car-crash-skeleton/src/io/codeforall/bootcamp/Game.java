@@ -50,6 +50,9 @@ public class Game {
             // Move all cars
             moveAllCars();
 
+            // Check collisions
+            checkCollisions();
+
             // Update screen
             Field.draw(cars);
 
@@ -58,7 +61,20 @@ public class Game {
     }
 
     private void moveAllCars() {
-
+        for (Car car : cars){
+            car.move();
+        }
     }
 
+    private void checkCollisions(){
+        for (int i = 0; i < cars.length; i++) {
+            for (int j = i +1; j < cars.length; j++) {
+                if (cars[i].getPos().equals(cars[j].getPos())){
+                    cars[i].setCrashed(true);
+                    cars[j].setCrashed(true);
+                }
+
+            }
+        }
+    }
 }
