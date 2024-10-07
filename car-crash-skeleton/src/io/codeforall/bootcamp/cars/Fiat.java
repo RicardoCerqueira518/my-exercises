@@ -15,7 +15,7 @@ public class Fiat extends Car{
 
     @Override
     public String toString() {
-        return "F";
+        return this.isCrashed() ? "C" : "F";
     }
 
 }

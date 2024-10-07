@@ -14,7 +14,7 @@ public class Mustang extends Car{
 
     @Override
     public String toString() {
-        return "M";
+        return this.isCrashed() ? "C" : "M";
     }
 
 }
