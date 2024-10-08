@@ -18,6 +18,7 @@ public class Barrel extends GameObject implements Destroyable {
     public boolean isDestroyed(){
         //FALTA COLOCAR O TIPO DE BARREL PARA EXPLODIR
 
+
         return currentDamage>= //TIPO DE BARREL
     }
 
@@ -25,6 +26,7 @@ public class Barrel extends GameObject implements Destroyable {
     public String getMessage() {
         return "Barrel target! Explode it!";
     }
+
 
 
 }

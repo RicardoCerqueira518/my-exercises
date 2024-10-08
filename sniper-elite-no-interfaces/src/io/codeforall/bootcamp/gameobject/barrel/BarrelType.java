@@ -16,4 +16,6 @@ public enum BarrelType {
     public int getMaxDamage() {
         return maxDamage;
     }
+
+
 }
