@@ -22,6 +22,7 @@ public class FileManager {
         name = new String();
         password = new String();
 
+
     }
 
     public void login(String username, String password){
@@ -44,16 +45,24 @@ public class FileManager {
         }
     }
 
-    public File getFile(String name) throws FileNotFoundException{
+    public File getFile(String name) throws FileNotFoundException, NotEnoughPermissionException{
+        if(logged = false){
+            throw new NotEnoughPermissionException("No permission. Please log in");
+        }
+        // deveria verificar se o nome do ficheiro existe e não se o array está vazio.
         File file = new File();
         name = file.getName();
         if (name == null){
-            throw new FileNotFoundException("Name not found");
+            throw new FileNotFoundException("File not found");
         }
         return file;
     }
 
-    public void createFile (String nameFile) throws NotEnoughSpaceException{
+    public void createFile (String nameFile) throws NotEnoughSpaceException, NotEnoughPermissionException{
+        if(logged = false){
+            throw new NotEnoughPermissionException("No permission. Please log in");
+        }
+
         File file = new File();
         for (int i = 0; i < filesName.length; i++) {
             filesName[i] = file.getName();

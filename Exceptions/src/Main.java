@@ -20,11 +20,11 @@ public class Main {
 
 
         } catch (NotEnoughSpaceException e) {
-            System.out.println("Not enough space");
+            System.out.println(e.getMessage());
         } catch (NotEnoughPermissionException e) {
-            System.out.println("No permission. Please log in");
+            System.out.println(e.getMessage());
         } catch (FileNotFoundException e) {
-            System.out.println("Name not found");
+            System.out.println(e.getMessage());
         }
 
 
