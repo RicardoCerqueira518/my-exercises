@@ -24,7 +24,6 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
     public SimpleGfxGridPosition(SimpleGfxGrid grid) {
         super((int) (Math.random() * grid.getCols()), (int) (Math.random() * grid.getRows()), grid);
 
-
     }
 
     /**
@@ -35,8 +34,8 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
      */
     public SimpleGfxGridPosition(int col, int row, SimpleGfxGrid grid) {
         super(col, row, grid);
-        simpleGfxGrid = new SimpleGfxGrid(col,row);
-        this.rectangle = new Rectangle(simpleGfxGrid.columnToX(col), simpleGfxGrid.rowToY(row), simpleGfxGrid.getCellSize(), simpleGfxGrid.getCellSize());
+        simpleGfxGrid = grid;
+        this.rectangle = new Rectangle(grid.columnToX(col), grid.rowToY(row), simpleGfxGrid.CELL_SIZE, simpleGfxGrid.CELL_SIZE);
         rectangle.draw();
         show();
 
@@ -63,7 +62,15 @@ public class SimpleGfxGridPosition extends AbstractGridPosition {
      */
     @Override
     public void moveInDirection(GridDirection direction, int distance) {
+        int beforePosX = simpleGfxGrid.columnToX(super.getCol());
+        int beforePosY = simpleGfxGrid.rowToY(super.getRow());
+
         super.moveInDirection(direction, distance);
+
+        int afterPosX = simpleGfxGrid.columnToX(super.getCol());
+        int afterPosY = simpleGfxGrid.rowToY(super.getRow());
+
+        rectangle.translate((afterPosX-beforePosX),(afterPosY-beforePosY));
     }
 
     /**

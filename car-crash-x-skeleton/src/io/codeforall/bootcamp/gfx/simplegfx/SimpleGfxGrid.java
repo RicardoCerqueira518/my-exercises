@@ -9,19 +9,19 @@ public class SimpleGfxGrid implements Grid {
 
     private Rectangle rectangle;
     public static final int PADDING = 10;
-    public int cols;
-    public int rows;
-    public int widht;
-    public int height;
-    public int cellSize = 20;
+    private int cols;
+    private int rows;
+    private int widht;
+    private int height;
+    public static final int CELL_SIZE = 20;
     public int x;
     public int y;
 
     public SimpleGfxGrid(int cols, int rows) {
         this.cols = cols;
         this.rows = rows;
-        this.widht = cols * cellSize;
-        this.height = rows * cellSize;
+        this.widht = cols * CELL_SIZE;
+        this.height = rows * CELL_SIZE;
     }
 
     /**
@@ -92,7 +92,7 @@ public class SimpleGfxGrid implements Grid {
      * @return
      */
     public int getCellSize() {
-        return cellSize;
+        return CELL_SIZE;
     }
 
     /**
@@ -118,7 +118,7 @@ public class SimpleGfxGrid implements Grid {
      * @return y pixel value
      */
     public int rowToY(int row) {
-        return (row*cellSize)+PADDING;
+        return (row* CELL_SIZE)+PADDING;
     }
 
     /**
@@ -128,7 +128,7 @@ public class SimpleGfxGrid implements Grid {
      * @return x pixel value
      */
     public int columnToX(int column) {
-       return (column*cellSize)+PADDING;
+       return (column* CELL_SIZE)+PADDING;
     }
 
 
