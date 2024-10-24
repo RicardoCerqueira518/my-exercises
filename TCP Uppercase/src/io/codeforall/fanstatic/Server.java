@@ -17,22 +17,18 @@ public class Server {
         // STEP2: Bind to local port and block while waiting for client connections
         ServerSocket serverSocket;
 
-        {
-            serverSocket = new ServerSocket(portNumber);
-            Socket clientSocket = serverSocket.accept();
-            clientSocket.getLocalPort();
+        serverSocket = new ServerSocket(portNumber);
+        Socket clientSocket = serverSocket.accept();
+        clientSocket.getLocalPort();
 
-            // STEP3: Setup input and output streams
-            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+        // STEP3: Setup input and output streams
+        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+        BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-            while (true) {
-                serverMessage = in.readLine();
-                serverMessage = serverMessage.toUpperCase();
-                System.out.println(serverMessage);
-            }
-
-
+        while (true) {
+            serverMessage = in.readLine();
+            serverMessage = serverMessage.toUpperCase();
+            System.out.println(serverMessage);
         }
 
     }

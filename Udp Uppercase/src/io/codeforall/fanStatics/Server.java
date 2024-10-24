@@ -10,20 +10,17 @@ import java.util.Arrays;
 
 public class Server {
 
-    private String message;
 
     public void messageToUpperCase() {
-        this.message = message;
 
         // STEP1: Get your host and port
         String hostName = "localhost";
-        int foreignPort;
         int localPort = 8080; //Servidor
 
         // STEP2: Create send and receive buffers
         byte[] sendBuffer = new byte[1024];
         byte[] recvBuffer = new byte[1024];
-        String string;
+        String receivedMessage;
 
         // STEP3: Open a UDP (datagram) socket
         DatagramSocket socket;
@@ -36,14 +33,14 @@ public class Server {
                 socket.receive(receivePacket); // blocks while packet not received
 
 
-                string = new String(recvBuffer, 0, recvBuffer.length);
+                receivedMessage = new String(recvBuffer, 0, recvBuffer.length);
 
-                string = string.toUpperCase().trim();
-                System.out.println(string);
+                receivedMessage = receivedMessage.toUpperCase().trim();
+                System.out.println(receivedMessage);
 
 
                 // STEP4.2: Create and send UDP datagram packet from the socket
-                sendBuffer = string.getBytes();
+                sendBuffer = receivedMessage.getBytes();
 
                 DatagramPacket sendPacket = new DatagramPacket(sendBuffer, sendBuffer.length, receivePacket.getAddress(), receivePacket.getPort());
 
