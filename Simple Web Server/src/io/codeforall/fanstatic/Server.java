@@ -18,7 +18,9 @@ public class Server {
 
         while (true) {
             Socket clientSocket = serverSocket.accept();
+            System.out.println("oaishda");
             System.out.println("Cliente conectado: " + clientSocket.getInetAddress());
+            System.out.println(clientSocket.getPort());
 
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -26,19 +28,19 @@ public class Server {
             String requestLine = in.readLine();
             if (requestLine != null && requestLine.startsWith("GET")) {
                 String[] requestParts = requestLine.split(" ");
-                String requestedFile = requestParts[1].substring(1); // Remove a barra inicial
+                String requestedResource = requestParts[1].substring(1); // Remove a barra inicial
 
                 // Serve o arquivo solicitado ou index.html se não houver arquivo
-                if (requestedFile.isEmpty()) {
-                    requestedFile = "index.html"; // Serve o HTML padrão
+                if (requestedResource.isEmpty()) {
+                    requestedResource = "index.html"; // Serve o HTML padrão
                 }
 
-                File file = new File("src/io/codeforall/fanstatic/" + requestedFile);
+                File file = new File("src/io/codeforall/fanstatic/" + requestedResource);
                 System.out.println("REQUESTED FILE: " + file.getAbsolutePath());
 
-                String contentType = getContentType(requestedFile);
+                String contentType = getResourceExtension(requestedResource);
 
-                if (file.exists() && !file.isDirectory() && isValidContentType(contentType)) {
+                if (file.exists() && !file.isDirectory() && isValidResourceExtension(contentType)) {
                     byte[] fileContent = readFile(file);
                     out.println("HTTP/1.0 200 OK");
                     out.println("Content-Type: " + contentType);
@@ -54,7 +56,7 @@ public class Server {
         }
     }
 
-    private static String getContentType(String fileName) {
+    private static String getResourceExtension(String fileName) {
         if (fileName.endsWith(".html")) {
             return "text/html; charset=UTF-8";
         }
@@ -67,7 +69,7 @@ public class Server {
         return "application/octet-stream"; // Tipo padrão
     }
 
-    private static boolean isValidContentType(String contentType) {
+    private static boolean isValidResourceExtension(String contentType) {
         return contentType.equals("text/html; charset=UTF-8") ||
                 contentType.equals("image/png") ||
                 contentType.equals("image/x-icon");
@@ -88,7 +90,7 @@ public class Server {
     private static void send404(PrintWriter out, java.io.OutputStream outputStream) {
         File file = new File("src/io/codeforall/fanstatic/404.html");
         try {
-            String contentType = getContentType("404.html");
+            String contentType = getResourceExtension("404.html");
             byte[] fileContent = readFile(file);
 
             out.println("HTTP/1.0 404 Not Found");
