@@ -24,7 +24,7 @@ public class BQueue<T> {
      * Blocking operation if the queue is full
      * @param data the data to add to the queue
      */
-    public synchronized void offer(T data) throws UnsupportedOperationException, InterruptedException {
+    public synchronized void offer(T data) throws InterruptedException {
         while (queue.size() == limit) {
             System.out.println("Queue is full. Producer is waiting...");
             wait(); // Wait until space is available
@@ -39,7 +39,7 @@ public class BQueue<T> {
      * Blocking operation if the queue is empty
      * @return the data from the head of the queue
      */
-    public synchronized T poll() throws UnsupportedOperationException, InterruptedException {
+    public synchronized T poll() throws InterruptedException {
         while (queue.isEmpty()) {
             System.out.println("Queue is empty. Consumer is waiting...");
             wait(); // Wait until there is data to consume
@@ -53,7 +53,7 @@ public class BQueue<T> {
      * Gets the number of elements in the queue
      * @return the number of elements
      */
-    public int getSize() throws UnsupportedOperationException {
+    public int getSize() {
         return queue.size();
     }
 
@@ -61,7 +61,7 @@ public class BQueue<T> {
      * Gets the maximum number of elements that can be present in the queue
      * @return the maximum number of elements
      */
-    public int getLimit() throws UnsupportedOperationException {
+    public int getLimit() {
         return limit;
     }
 
