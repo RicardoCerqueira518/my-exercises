@@ -1,6 +1,7 @@
 package io.codeforall.bootcamp.bqueue;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Blocking Queue
@@ -9,13 +10,13 @@ import java.util.LinkedList;
 public class BQueue<T> {
 
     private int limit;
-    private final LinkedList<T> queue = new LinkedList<>();
+    private final Queue<T> queue = new LinkedList<>();
 
     /**
      * Constructs a new queue with a maximum size
      * @param limit the queue size
      */
-    public BQueue(int limit) throws UnsupportedOperationException{
+    public BQueue(int limit) {
             this.limit = limit;
     }
 
@@ -44,7 +45,7 @@ public class BQueue<T> {
             System.out.println("Queue is empty. Consumer is waiting...");
             wait(); // Wait until there is data to consume
         }
-        T data = queue.removeFirst();
+        T data = queue.poll();
         notifyAll(); // Notify producers that space is available
         return data;
     }
