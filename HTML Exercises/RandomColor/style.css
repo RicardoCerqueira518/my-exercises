@@ -1,24 +1,37 @@
 *{
     margin: 0; 
-    padding: 0;}
+    padding: 0;
+}
+
 main{
-    padding: 50px;
     width: 100vw; 
-    height: 100vh;}
+    height: 100vh;
+    position: relative;
+}
+
 section{
     background: blue; 
     display: flex; 
     justify-content: center;
     align-items: center;
-    margin: auto;box-shadow: 0px 50px 50px black;
     }
+
 article{
     background: yellow; 
-    min-height: 50vh; 
+    min-height: 100vh; 
     display: flex; 
     justify-content: center; 
     align-items: end;
     width: 60vw; 
     height: 80vh;
     color: white;
-padding: 10px;}
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 50%;
+    box-shadow: 0 10px 10px black;
+}

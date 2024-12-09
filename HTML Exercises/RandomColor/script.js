@@ -21,20 +21,23 @@ const colors = [
     "#FF1493"    // Deep Pink
 ];
  
+
+
+
+
+
 function selectColor(){
     const randomIndex = Math.floor(Math.random() * colors.length);
     return colors[randomIndex]
 }
+function updateColors(){
+    let selectColor1 = selectColor();
+    let selectColor2 = selectColor();
+    let selectColor3 = selectColor();
+    let selectColor4 = selectColor();
+    let selectColor5 = selectColor();
 
-
-let selectColor1 = selectColor();
-let selectColor2 = selectColor();
-let selectColor3 = selectColor();
-let selectColor4 = selectColor();
-let selectColor5 = selectColor();
-
-
-// randon color
+    // randon color
 document.getElementById("1").innerHTML = selectColor();
 document.getElementById("1").style.backgroundColor = selectColor1;
 
@@ -49,5 +52,12 @@ document.getElementById("4").style.backgroundColor = selectColor4;
 
 document.getElementById("5").innerHTML = selectColor();
 document.getElementById("5").style.backgroundColor = selectColor5;
+}
+
+// updateColors()
+
+let update = document.getElementById('aa');
+update.addEventListener("click", ()=> updateColors());
+
 
 
