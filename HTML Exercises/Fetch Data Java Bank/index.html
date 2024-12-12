@@ -32,6 +32,7 @@
                 <label for="phoneNumber" class="form-label">Phone Number</label>
                 <input type="text" class="form-control" id="phoneNumber">
             </div>
+            <input type="hidden" id="customerId" />
         </form>
 
             <button type="submit" class="btn btn-success" id="add">Add</button>
@@ -40,7 +41,9 @@
 
         <h2>List of Customers:</h2>
 
-        <table class="table table-bordered" id ="tableBody"></table>
+        <table class="table table-bordered">
+            <tbody id="tableBody"></tbody>
+        </table>
 
     </main>
 
