@@ -5,6 +5,24 @@ function handlePopState({ state }) {
 
     setCurrentRoute(route);
     loadController(route.controller);
+    
+    function handlePopState({ state }) {
+        const route = state || routes.home;
+    
+        setCurrentRoute(route);
+        loadController(route.controller);
+    }
+    
+    function addEventsToAnchors() {
+        const anchors = document.querySelectorAll('a');
+    
+        anchors.forEach(anchor =>
+            anchor.addEventListener('click', function (event) {
+                event.preventDefault();
+                navigate(anchor.pathname);
+            })
+        );
+    }
 }
 
 function addEventsToAnchors() {

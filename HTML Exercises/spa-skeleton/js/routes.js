@@ -3,9 +3,9 @@ export const routes = {
         path: '/',
         controller: 'homeController'
     },
-    jobs: {
-        path: '/jobs',
-        controller: 'jobController'
+    character: {
+        path: '/character',
+        controller: 'characterController'
     },
     currentPath: {
         path: '',

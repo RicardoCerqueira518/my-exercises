@@ -1,5 +1,5 @@
 {
-    "name": "job-spa",
+    "name": "characters-spa",
     "version": "1.0.0",
     "description": "Small SPA app using MVC pattern and history API",
     "main": "index.js",

@@ -1,9 +1,11 @@
 function render(onClick) {
     const container = document.querySelector('#container');
+
     const button = document.createElement('button');
     const div = document.createElement('div');
 
     div.className = `text-center`;
+    div.id ="aaa";
     button.className = `btn btn-primary`;
     button.type = `button`;
     button.style = `margin-top: 10%; margin-bottom: 10%`;
@@ -11,35 +13,24 @@ function render(onClick) {
     div.appendChild(button);
 
     container.innerHTML = ''; //removes the previous elements
-    button.innerText = `CLICK ME FOR RANDOM JOB`;
+    button.innerText = `CLICK ME FOR RANDOM CHARACTER`;
 
     button.addEventListener('click', async e => {
         e.preventDefault();
 
         const {
-            title,
-            company_name,
-            description,
-            remote,
-            url,
-            tags,
-            job_types,
-            location,
-            created_at
+            id,
+            name,
+            image,
         } = await onClick(parseInt(Math.random() * 6));
 
         const elem = document.createElement('div');
         elem.className = `text-center`;
 
-        elem.innerHTML = `<h1>${title}</h1>
-        <h3>${company_name}</h3>
-        <h3>${description}</h3>
-        <h3>${remote}</h3>
-        <h3>${url}</h3>
-        <h3>${tags}</h3>
-        <h3>${job_types}</h3>
-        <h3>${location}</h3>
-        <h3>${created_at}</h3>
+        elem.innerHTML = `
+        <h1 >${id}</h1>
+        <h3>${name}</h3>
+        <h3>${image}</h3>
         `;
 
         if (container.childElementCount > 1) {

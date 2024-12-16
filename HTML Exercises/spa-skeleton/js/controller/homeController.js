@@ -1,6 +1,6 @@
 import homeView from '../view/homeView.js';
-import jobService from '../service/jobService.js';
+import characterService from '../service/characterService.js';
 
 export function init() {
-    homeView.render(jobService.getJob);
+    homeView.render(characterService.getCharacter);
 }

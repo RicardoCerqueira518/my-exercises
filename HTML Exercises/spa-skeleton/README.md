@@ -1,1 +1,1 @@
-## Job SPA skeleton
+## NARUTO characters SPA skeleton
